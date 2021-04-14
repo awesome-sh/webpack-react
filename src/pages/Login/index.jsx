@@ -162,7 +162,7 @@ function Login({ history }) {
                             아이디
                         </div>
                         <div className="login-item">
-                            <input type="text" placeholder="아이디를 입력해주세요" autofocus="true" />
+                            <input type="text" placeholder="아이디를 입력해주세요" autoFocus={true} />
                         </div>
                     </div>
 

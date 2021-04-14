@@ -170,8 +170,8 @@ function index() {
                             </tr>
                         </thead>
                         <tbody>
-                            { Sample.map(() => 
-                                <tr>
+                            { Sample.map((item, idx) => 
+                                <tr key={idx}>
                                     <td>1</td>
                                     <td>Eyedoc-Pro 542875</td>
                                     <td>2021-04-12</td>
