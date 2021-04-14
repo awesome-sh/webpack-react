@@ -5,10 +5,9 @@ const LoginContainer = styled.div`
     position: relative;
     width: 1000px;
     height: 700px;
-    background-color: #fff;
+    background-color: #faf8f3;
     display: flex;
     letter-spacing: -0.7px;
-    box-shadow: 5px 15px 15px 5px rgba(53, 53, 53, 0.034);
     overflow: hidden;
 
     .login-left {
@@ -24,7 +23,7 @@ const LoginContainer = styled.div`
         background-color: #303446;
 
         h3 {
-            font-size: 48px;
+            font-size: 36px;
             margin-bottom: 5px;
         }
 
@@ -137,7 +136,7 @@ const LoginContainer = styled.div`
     }
 `
 
-function Login() {
+function Login({ history }) {
     const [ toggle, setToggle ] = useState(false)
 
     const handleRegister = () => {
@@ -176,7 +175,7 @@ function Login() {
                         </div>
                     </div>
 
-                    <button>로그인</button>
+                    <button onClick={() => history.push('/dashboard')}>로그인</button>
 
                     <div className="login-bottom">
                         클라이언트 등록을 하지 않으셨나요? <span style={{marginLeft: '15px'}} onClick={handleRegister}>클라이언트 등록</span>

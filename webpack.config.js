@@ -59,6 +59,13 @@ module.exports = webpackEnv => {
             open: true, // 서버를 실행했을 때, 브라우저를 열어주는 여부 
             overlay: true, // 오류 발생 시, 브라우저에 전체 화면 오버레이를 표시
             stats: 'errors-warnings', // 컴파일 시 보여주는 항목 설정
+            contentBase: path.join(__dirname, '/'), 
+            compress: true, 
+            watchContentBase: true, 
+            watchOptions: {
+                poll: true
+            },
+            historyApiFallback: true, 
         },
     }
 }
