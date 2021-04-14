@@ -1,13 +1,29 @@
 import React from 'react'
+import styled from 'styled-components'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import './App.css'
+
+// Route Component imports
+import Login from './pages/Login'
+
+const AppContainer = styled.div`
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
 
 function App() {
     return (
-        <div>
-            <h1>React on webpack</h1>
-            <p>Non Create React App Build</p>
-            <p>Non Create React App Build</p>
-            <p>Non Create React App Build</p>
-        </div>
+        <Router>
+            <AppContainer>
+                <Switch>
+                    <Route exact path="/" component={Login} />
+                </Switch>
+            </AppContainer>
+        </Router>
     )
 }
 
