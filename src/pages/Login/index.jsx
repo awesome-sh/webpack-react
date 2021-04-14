@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
+import BG from '../../assets/proSlide4.png'
+
 const LoginContainer = styled.div`
     position: relative;
     width: 1000px;
@@ -20,7 +22,12 @@ const LoginContainer = styled.div`
         justify-content: center;
         align-items: center;
         color: #fff;
-        background-color: #303446;
+        background-color: rgba(36, 38, 44, 0.973);
+        background-image: url(${BG});
+        background-size: 200%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-blend-mode: overlay;
 
         h3 {
             font-size: 36px;
