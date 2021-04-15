@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const InputContainer = styled.input`
-    width: ${props => props.inputStyle.width ? props.inputStyle.width : '100%'};
-    height: ${props => props.inputStyle.height ? props.inputStyle.height : '50px'};
+    width: ${props => props.inputStyle.width ? `${props.inputStyle.width}px` : '100%'};
+    height: ${props => props.inputStyle.height ? `${props.inputStyle.height}px` : '50px'};
     padding-left: 15px;
     border: 1px solid #eee;
     transition: all 0.4s ease-out;
