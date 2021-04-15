@@ -65,10 +65,9 @@ const DashboardLeft = styled.div`
         li {
             position: relative;
             cursor: pointer;
-            width: ${props => props.isToggle ? '100px' : '330px'};
+            width: ${props => props.isToggle ? '100px' : '350px'};
             height: ${props => props.isToggle ? '90px' : '60px'};
-            border-bottom: ${props => props.isToggle ? '1px solid #3e4252' : '1px solid #303446'};
-            margin: ${props => props.isToggle ? '0px' : '10px'};
+            border-bottom: ${props => props.isToggle ? '1px solid #3e4252' : '1px solid #3e4252'};
             font-size: ${props => props.isToggle ? '24px' : '18px'};
             transition: all 0.4s ease-out;
 
@@ -78,7 +77,7 @@ const DashboardLeft = styled.div`
                 visibility: ${props => props.isToggle ? 'hidden' : 'visible'};
                 margin-left: ${props => props.isToggle ? '0px' : '25px'};
                 opacity: ${props => props.isToggle ? '0' : '1'};
-                font-size: ${props => props.isToggle ? '12px' : '16px'};
+                font-size: ${props => props.isToggle ? '12px' : '15px'};
                 transform: ${props => props.isToggle ? 'translateY(50%)' : 'translateY(0%)'};
                 background: ${props => props.isToggle ? '#3e4252' : 'none'};
                 padding: ${props => props.isToggle ? '8px 15px 8px 15px' : '0'};
@@ -115,6 +114,10 @@ const DashboardLeft = styled.div`
                 transform: ${props => props.isToggle ? 'translateY(0%)' : 'translateY(0%)'};
                 opacity: 1;
             }
+        }
+
+        .selected {
+            background: #3e4252;
         }
     }
 `
@@ -193,11 +196,17 @@ function index({ history }) {
         setToggle( prevState => !prevState )
     }
 
+    const [ currentMenu, setCurrentMenu ] = useState('')
+
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
         }, 500)
     }, [])
+
+    useEffect(() => {
+        setCurrentMenu( window.location.pathname.split('/')[1] )
+    })
 
     return (
         <DashboardContainer>
@@ -211,19 +220,19 @@ function index({ history }) {
                         <p>Client</p>
                         <h1 onClick={() => history.push('/')} >VROR</h1>
                         <ul>
-                            <li onClick={() => history.push('/products')} >
+                            <li onClick={() => history.push('/products')} className={ currentMenu === 'products' && 'selected' }>
                                 <div className="menu-item">
                                     <FontAwesomeIcon icon={faCube} /><span>내 제품</span>
                                 </div>
                                 <div className="hover-bg"></div>
                             </li>
-                            <li onClick={() => history.push('/examination')} >
+                            <li onClick={() => history.push('/examination')} className={ currentMenu === 'examination' && 'selected' }>
                                 <div className="menu-item">
                                     <FontAwesomeIcon icon={faEye} /><span>측정 관리</span>
                                 </div>
                                 <div className="hover-bg"></div>
                             </li>
-                            <li onClick={() => history.push('/statistics')} >
+                            <li onClick={() => history.push('/statistics')} className={ currentMenu === 'statistics' && 'selected' }>
                                 <div className="menu-item">
                                     <FontAwesomeIcon icon={faChartBar} /><span>통계</span>
                                 </div>
