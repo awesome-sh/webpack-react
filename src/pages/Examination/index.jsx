@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import Table from '../../components/Table'
+
 const ExaminationContainer = styled.div`
     padding: 50px;
 
     h3 {
         font-size: 24px;
+        font-weight: lighter;
     }
 
     .exam-container {
@@ -15,11 +18,10 @@ const ExaminationContainer = styled.div`
 
 const ExamLeftContainer = styled.div`
     margin-top: 30px;
-    background: #eeeff3;
-    border-radius: 20px;
     width: 300px;
     height: 100%;
     padding-top: 25px;
+    margin-right: 25px;
 
     .exam-items {
         width: 100%;
@@ -29,25 +31,35 @@ const ExamLeftContainer = styled.div`
 
         .exam-item {
             margin: 5px;
-            width: 40%;
+            width: 50%;
+            border: 1px solid #ebebeb;
+            border-bottom: 1px solid #303446;
+            transition: all 0.5s ease-out;
             
             .title {
-                padding-left: 10px;
-                margin-bottom: 5px;
+                margin-top: 15px;
+                padding-left: 15px;
                 font-size: 16px;
             }
 
             .count {
+                padding-right: 15px;
                 display: flex;
-                justify-content: center;
+                justify-content: flex-end;
                 align-items: center;
-                background: #fff;
                 color: #707070;
                 border-radius: 10px;
                 height: 50px;
-                font-size: 18px;
-                font-weight: 300;
-                font-family: 'Ubuntu';
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            &:hover {
+                background: #f5f6f8;
+            }
+
+            &:hover .count {
+                color: #2c3872;
             }
         }
     }
@@ -60,39 +72,19 @@ const ExamRightContainer = styled.div`
     height: 100%;
 
     padding: 15px;
-
-    table {
-        text-align: center;
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    thead tr th {
-        color: #575757;
-        height: 60px;
-        border-bottom: 5px solid #303446;
-    }
-
-    tbody tr {
-        border: 1px solid #eee;
-    }
-
-    tbody tr td {
-        height: 60px;
-        color: #7c7c7c;
-        border: 1px solid #eee;
-        font-size: 15px;
-    }
 `
 
 function index() {
-    const Sample = new Array(25).fill(0)
+    const Sample = new Array(15).fill(0)
 
     return (
         <ExaminationContainer>
-            <h3>Examination</h3>
+            <h3>측정 관리　|　Examination</h3>
             <div className="exam-container">
                 <ExamLeftContainer>
+                    <h3 style={{ marginBottom: '15px', fontSize: '18px' }}>
+                        검사 별 측정 회수 (회)
+                    </h3>
                     <div className="exam-items">
                         <div className="exam-item">
                             <div className="title">시력</div>
@@ -157,7 +149,7 @@ function index() {
                 </ExamLeftContainer>
 
                 <ExamRightContainer>
-                    <table>
+                    <Table>
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -182,7 +174,7 @@ function index() {
                                 </tr>
                             )}
                         </tbody>
-                    </table>
+                    </Table>
                 </ExamRightContainer>
             </div>
         </ExaminationContainer>

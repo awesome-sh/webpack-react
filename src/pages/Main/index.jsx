@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCube, faEye, faChartBar, faBars, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faCube, faEye, faChartBar, faBars, faUser, faSignOutAlt, faUsers } from '@fortawesome/free-solid-svg-icons'
 import { Switch, Route } from 'react-router-dom'
 
 import Products from '../Products'
 import Examination from '../Examination'
+import User from '../User'
 import Statistics from '../Statistics'
+import Notfound from '../NotFound'
 
 // Loading Component
 import Loading from '../Loading/index'
@@ -183,6 +185,7 @@ const DashboardRight = styled.div`
     }
 
     .content-container {
+        position: relative;
         padding-top: 80px;
         height: 100%;
     }
@@ -220,19 +223,25 @@ function index({ history }) {
                         <p>Client</p>
                         <h1 onClick={() => history.push('/')} >VROR</h1>
                         <ul>
-                            <li onClick={() => history.push('/products')} className={ currentMenu === 'products' && 'selected' }>
+                            <li onClick={() => history.push('/products')} className={ currentMenu === 'products' ? 'selected' : null }>
                                 <div className="menu-item">
                                     <FontAwesomeIcon icon={faCube} /><span>내 제품</span>
                                 </div>
                                 <div className="hover-bg"></div>
                             </li>
-                            <li onClick={() => history.push('/examination')} className={ currentMenu === 'examination' && 'selected' }>
+                            <li onClick={() => history.push('/examination')} className={ currentMenu === 'examination' ? 'selected' : null }>
                                 <div className="menu-item">
                                     <FontAwesomeIcon icon={faEye} /><span>측정 관리</span>
                                 </div>
                                 <div className="hover-bg"></div>
                             </li>
-                            <li onClick={() => history.push('/statistics')} className={ currentMenu === 'statistics' && 'selected' }>
+                            <li onClick={() => history.push('/users')} className={ currentMenu === 'users' ? 'selected' : null }>
+                                <div className="menu-item">
+                                    <FontAwesomeIcon icon={faUsers} /><span>유저 관리</span>
+                                </div>
+                                <div className="hover-bg"></div>
+                            </li>
+                            <li onClick={() => history.push('/statistics')} className={ currentMenu === 'statistics' ? 'selected' : null}>
                                 <div className="menu-item">
                                     <FontAwesomeIcon icon={faChartBar} /><span>통계</span>
                                 </div>
@@ -255,12 +264,16 @@ function index({ history }) {
                                 </div>
                             </div>
                         </div>
+
                         <div className="content-container">
                             <Switch>
-                                <Route exact path="/" component={null} />
+                                <Route path="/dashboard" component={null} />
                                 <Route path="/products" component={Products} />
+                                <Route path="/examination/:id" component={Examination} />
                                 <Route path="/examination" component={Examination} />
+                                <Route path="/users" component={User} />
                                 <Route path="/statistics" component={Statistics} />
+                                <Route component={Notfound} />
                             </Switch>
                         </div>
                     </DashboardRight>

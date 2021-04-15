@@ -6,6 +6,7 @@ import './App.css'
 // Route Component imports
 import Login from './pages/Login'
 import Main from './pages/Main'
+import Notfound from './pages/NotFound'
 
 const AppContainer = styled.div`
     width: 100vw;
@@ -24,8 +25,11 @@ function App() {
                     <Route exact path="/" component={Login} />
                     <Route path="/dashboard" component={Main} />
                     <Route path="/products" component={Main} />
+                    <Route path="/examination/:id" component={Main} />
                     <Route path="/examination" component={Main} />
+                    <Route path="/users" component={Main} />
                     <Route path="/statistics" component={Main} />
+                    <Route component={Notfound} />
                 </Switch>
             </AppContainer>
         </Router>

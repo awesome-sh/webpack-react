@@ -6,6 +6,7 @@ const ExaminationContainer = styled.div`
 
     h3 {
         font-size: 24px;
+        font-weight: lighter;
     }
 
     .exam-container {
@@ -92,7 +93,7 @@ function index() {
 
     return (
         <ExaminationContainer>
-            <h3>Statistics</h3>
+            <h3>통계　|　Statistics</h3>
         </ExaminationContainer>
     )
 }
