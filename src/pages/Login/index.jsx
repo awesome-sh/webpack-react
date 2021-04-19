@@ -164,7 +164,7 @@ function Login({ history }) {
             <div className="login-right-container">
 
                 <div className="login-right" id="login">
-                    <div className="login-frm">
+                    {/* <div className="login-frm">
                         <div className="login-label">
                             아이디
                         </div>
@@ -186,7 +186,9 @@ function Login({ history }) {
 
                     <div className="login-bottom">
                         클라이언트 등록을 하지 않으셨나요? <span style={{marginLeft: '15px'}} onClick={handleRegister}>클라이언트 등록</span>
-                    </div>
+                    </div> */}
+                    준비중 입니다<br/><br/>
+                    - M2S Development Team -
                 </div>
 
                 {/* Client Register */}
